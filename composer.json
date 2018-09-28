@@ -1,0 +1,13 @@
+{
+    "name": "obachar46/wpHelper",
+    "autoload": {
+        "psr-4" : {
+            "WpHelper\\" : "src"
+        },
+		"files" : [
+				"../wp-load.php",
+				"../wp-admin/includes/image.php"
+		]
+
+    }
+}
