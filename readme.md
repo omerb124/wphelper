@@ -5,7 +5,8 @@ WpHelper is a custom API for Professional WP developers, which has been created 
 
 ## Table Of Contents
 1. [Installation](#installation)
-2. [Functionality](#unctionality)
+2. [Getting started](#getting-started)
+3. [Functionality](#unctionality)
     *  [Upload Posts](#post-upload), with not only but also:
 	   - Thumbnail from URL\Attachment ID
 	   - Attached Tags
@@ -16,7 +17,7 @@ WpHelper is a custom API for Professional WP developers, which has been created 
 	   - Edit any of post's elements easily
 	* [Delete Posts](#post-delete)
 	   - Delete permamently any post easily, or moving it to trash
-3. TODOs
+4. TODOs
 
 ## Installation
 
@@ -38,8 +39,11 @@ add the following code to your __"composer.json"__ file:
 ```
 Then, hit 'composer update' on cmd, and the module will be installed to your project. 
 
+## Getting Started
 
+For start using the API, you have to add your allowed IPs to the IP whitelist (named 'ipwhitelist.txt'), which available on project root folder.
 
+__Remember!__ - Each line MUST CONTAIN ONLY ONE IP ADDRESS.
 
 
 ## Functionality

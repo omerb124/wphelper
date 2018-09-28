@@ -12,6 +12,8 @@ use WpHelper\Post;
 //);
 //
 //echo Utils::getWpDate();
-Post::editPost(57,array('post_title' => 'ddd44ff','post_category' => [1,2]));
+//Post::editPost(57,array('post_title' => 'ddd44ff','post_category' => [1,2]));
 
+var_dump(Utils::checkAuthIp());
+var_dump(Utils::getClientIp());
 ?>

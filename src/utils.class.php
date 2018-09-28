@@ -9,6 +9,8 @@ namespace WpHelper;
 ** * getWpDate() - get current date according to wordpress timezone
 ** * uploadImage() - upload image from url to website
 ** * printJsonResponse() - print json encoded response with status code & body
+** * getClientIp() - returns client IP address
+** * checkAuthIp() - checks current IP address on whitelist file in root, if allowed to acces or not.
 */
 
 class Utils
@@ -145,6 +147,44 @@ class Utils
 		);
 	}
 
+	/*
+	** Returns current client IP
+	** @return String - IP Address
+	*/
+	public static function getClientIp()
+	{
+		$ipaddress = '';
+		if (isset($_SERVER['HTTP_CLIENT_IP']))
+			$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+		else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+			$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		else if(isset($_SERVER['HTTP_X_FORWARDED']))
+			$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+		else if(isset($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']))
+			$ipaddress = $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
+		else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+			$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+		else if(isset($_SERVER['HTTP_FORWARDED']))
+			$ipaddress = $_SERVER['HTTP_FORWARDED'];
+		else if(isset($_SERVER['REMOTE_ADDR']))
+			$ipaddress = $_SERVER['REMOTE_ADDR'];
+		else
+			$ipaddress = 'UNKNOWN';
+		return $ipaddress;
+	}
 
+	/*
+	** Checks if current IP address is in whitelist
+	** @return Boolean
+	*/
+	public static function checkAuthIp()
+	{
+		$ip = self::getClientIp();
+		if(!filter_var($ip, FILTER_VALIDATE_IP))
+			return false;
 
+		$whitelist = file(PROJECT_ROOT . "/ipwhitelist.txt");
+		return in_array($ip,$whitelist);
+	}
 }
+

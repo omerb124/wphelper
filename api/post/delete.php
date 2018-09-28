@@ -17,6 +17,11 @@ include_once '../../vendor/autoload.php';
 
 header('Content-Type: application/json');
 
+// Check if ip allowed
+if(!Utils::checkAuthIp()){
+	wp_die('You are not allowed to see this page.');
+}
+
 if(isset($_GET['post_id'])){
 	$post_id = $_GET['post_id'];
 

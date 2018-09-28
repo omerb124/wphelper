@@ -6,7 +6,8 @@
         },
 		"files" : [
 				"../wp-load.php",
-				"../wp-admin/includes/image.php"
+				"../wp-admin/includes/image.php",
+				"config.php"
 		]
 
     }
