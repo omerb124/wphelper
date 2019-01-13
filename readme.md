@@ -1,6 +1,8 @@
 
 # WpHelper - API for wordpress developers
 
+__FOR LEARNING PURPOSES ONLY__ 
+
 WpHelper is a custom API for Professional WP developers, which has been created in order to give developers the opportunity to make actions like upload, edit and scheduling posts remotely without using the known WP UI (wp-admin). Moreover, the API can be used for creating your own custom UI or make special tasks done faster without writing much code.  
 
 ## Table Of Contents
